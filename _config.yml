@@ -25,7 +25,7 @@
 # author : Dereck Curry
 name : CodeSyndicate
 brand : CodeSyndicate
-description : a 2D spess coder on a journey (internals not provided)
+description : A blog devoted to coding!
 url : https://timothymtorres.github.io/
 email : timothymtorres@gmail.com
 author: Timothy Torres
@@ -294,7 +294,7 @@ social_links :
     - link :
       enabled : true
       name : StackOverflow
-      font_awesome_icon : icon-stack-overflow
+      font_awesome_icon : icon-code
       url : https://stackoverflow.com/users/1213111/timothy-torres     
 
 
