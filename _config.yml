@@ -177,9 +177,9 @@ sections:
     github_projects :
       enabled : true
   social_links :
-    enabled : true
+    enabled : false
   github_projects :
-    enabled : true
+    enabled : false
   external_links :
     enabled : false
   archive :
