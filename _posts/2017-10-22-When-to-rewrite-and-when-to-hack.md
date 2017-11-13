@@ -79,7 +79,7 @@ Both methods serve useful purposes, but with different tradeoffs.  Knowing when 
 
 This is the old code that I was using to broadcast events to objects in my game.
 
-{% highlight lua linenos=table %}
+{% highlight lua %}
 local function event(zone, action, data)
   local z_type, z_tile, z_stage, z_range = zone.type, zone.tile, zone.stage, zone.range  
   local z_player, z_target = zone.player, zone.target
@@ -129,7 +129,7 @@ return event
 
 And this is the rewritten new code that has improved functionality!
   
-{% highlight lua linenos=table %}
+{% highlight lua %}
 local broadcastEvent = {}
 
 function broadcastEvent.player(player, msg, self_msg, event)  --this broadcasts specifically to exclude player and give player their own self_msg 
