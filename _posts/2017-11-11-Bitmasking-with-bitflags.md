@@ -54,7 +54,7 @@ has_cupholders = 8    -- 1000
 --etc.
 {% endhighlight %}
 
-##### Adding and Subtracting Bitflags
+#### Adding and Subtracting Bitflags
 
 Note that these variables are all *optional* and you can have multiple ones *without them being dependent on each other*.  For instance, it's possible to have a car that has both a sticker and a dashcam.
 
@@ -80,7 +80,7 @@ fancy_car = fancy_car + has_dashcam -- 0010 (Uh oh, not good)
 
 Yikes!  The bitflag has changed so that now our fancy_car has morphed into having a sticker unintentionally.  This is not what we want!  To resolve this you need to use logic switches in your code.  Depending on the language this may be the `&` `|` `~` operations or bit operations `bit.band` `bit.bor` `bit.bnot` in Lua.  The operation to set the bitflags we want needs to be the `or` bit operation for a logic switch.  Let's try this again!
 
-##### Setting a bitflag
+#### Setting a bitflag
 
 {% highlight lua %}
 local bit = require('bit')
@@ -92,7 +92,7 @@ fancy_car = bit.bor(fancy_car, has_dashcam) -- 0001 | 0001 = 0001 (presto, it ha
 
 Success!  Using logic switches to add bitflags together no longer causes unintended bugs.
 
-##### Checking a bitflag
+#### Checking a bitflag
 
 To get a bitflags boolean state you need to check if it is set to `1` or `0`. The `and` logic switch will be useful.
 
@@ -107,7 +107,7 @@ print(isolated_bit == has_USB_port)                      -- 0000 == 0100 (false,
 
 Here we compared the `has_USB_port` flag against the bits set in our `fancy_car`.  Because fancy_car lacks a `0100` bitflag, it will return false when checked.  This is due to the `and` logic switch *isolating* the specific bit that is needed.  This bit is checked against the bitflag, which returns false in this case. 
 
-##### Removing a bitflag
+#### Removing a bitflag
 
 If we use the minus operation on the variable, it will run into the same problem as before if we try to remove a bitflag twice or one that isn't there.  To resolve this we must use our logic switches again.  This time it will be trickier, since we must use both the `and` and `not` bit operations.
 
