@@ -294,7 +294,7 @@ social_links :
     - link :
       enabled : true
       name : StackOverflow
-      font_awesome_icon : icon-stack-overflow
+      font_awesome_icon : icon-stackoverflow
       url : https://stackoverflow.com/users/1213111/timothy-torres     
 
 
