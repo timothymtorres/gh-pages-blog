@@ -168,20 +168,20 @@ sections:
   brief_bio :
     enabled : true
     image :
-      enabled : false
-      url : false
+      enabled : true
+      url : https://avatars3.githubusercontent.com/u/5195984?s=460&v=4
     content :
       enabled : true
     social_links :
-      enabled : false
+      enabled : true
     github_projects :
       enabled : true
   social_links :
-    enabled : false
-  github_projects :
-    enabled : false
-  external_links :
     enabled : true
+  github_projects :
+    enabled : true
+  external_links :
+    enabled : false
   archive :
     enabled : false
   categories :
