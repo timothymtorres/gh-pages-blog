@@ -23,12 +23,12 @@
 # url : https://thedereck.github.io
 # email : thedereck@thedereck.com
 # author : Dereck Curry
-name : gh-pages-blog
-brand : gh-pages-blog
-description : The Official gh-pages-blog GitHub Page
-url : https://thedereck.github.io/gh-pages-blog
-email : thedereck@thedereck.com
-author: Dereck Curry
+name : CodeSyndicate
+brand : CodeSyndicate
+description : a 2D spess coder on a journey (internals not provided)
+url : https://timothymtorres.github.io/
+email : timothymtorres@gmail.com
+author: Timothy Torres
 
 
 # The following is a list of files to exclude from inclusion in the
@@ -279,38 +279,23 @@ navbar :
 #       font_awesome_icon : icon-twitter
 #       url : https://www.twitter.com/dereckcurry
 social_links :
-  follow_name : Me
+  follow_name : Timothy
   links :
-    - link :
-      enabled : true
-      name : Facebook
-      font_awesome_icon : icon-facebook
-      url : https://www.facebook.com/
     - link :
       enabled : true
       name : GitHub
       font_awesome_icon : icon-github-alt
-      url : https://github.com/
-    - link :
-      enabled : true
-      name: Google+
-      font_awesome_icon : icon-google-plus
-      url : https://plus.google.com/
+      url : https://github.com/timothymtorres
     - link :
       enabled : true
       name : Linkedin
       font_awesome_icon : icon-linkedin
-      url : http://www.linkedin.com/
+      url : https://www.linkedin.com/in/timothy-torres
     - link :
       enabled : true
-      font_awesome_icon : icon-pinterest
-      name : Pinterest
-      url : http://www.pinterest.com
-    - link :
-      enabled : true
-      name : Twitter
-      font_awesome_icon : icon-twitter
-      url : https://www.twitter.com/
+      name : StackOverflow
+      font_awesome_icon : fa-stack-overflow
+      url : https://stackoverflow.com/users/1213111/timothy-torres     
 
 
 # These are a list of GitHub projects that the blog owner would like to
@@ -337,8 +322,11 @@ github_projects :
   header : GitHub Projects
   projects :
   - project :
-    name : gh-pages-blog
-    url : https://github.com/thedereck/gh-pages-blog
+    name : RL-Dice
+    url : https://github.com/timothymtorres/RL-Dice
+  - project :
+    name : ZomboTropolis
+    url : https://github.com/timothymtorres/ZomboTropolis-Roguelike    
 
 
 # These are links to other websites outside of the blog that are not part of
@@ -363,12 +351,6 @@ github_projects :
 #     - link :
 #       name : Lowcountry Blues Club
 #       url : http://lowcountrybluesclub.blogspot.com
-external_links :
-  header : More Great gh-pages-blog Sites
-  links :
-    - link :
-      name : The Dereck
-      url: https://thedereck.github.io
 
 
 # These are the Bootstrap settings. These Bootstrap settings will control both
@@ -548,7 +530,7 @@ rss :
 #   shortname : TheDereck
 #   show_comment_count : false
 disqus :
-  enabled : false
+  enabled : true
   shortname : myshortname
   show_comment_count : true
 
@@ -571,7 +553,7 @@ disqus :
 #     enabled : true
 #     tracking_id : UA-1234567
 analytics :
-  enabled : false
+  enabled : true
   google_analytics :
-    enabled : false
-    tracking_id : UA-1234567
+    enabled : true
+    tracking_id : UA-24235440-2
