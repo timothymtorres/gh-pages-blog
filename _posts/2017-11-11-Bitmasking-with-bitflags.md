@@ -2,7 +2,7 @@
 layout: post
 title: Bitmasking with bitflags
 subtitle: The foribidden art of compressing your code into itty-bitty pieces.  Microscope not included!
-category : Intermediate
+category : Advanced
 tags :  
   - optimize
   - technique
@@ -15,7 +15,7 @@ Before we talk about bitmasking, first we must discuss bitflags.
 
 ## What are Bitflags?
 
-A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arthimetically by using a base-2 or by the power of 2 - `x`2.  Regardless of skill level, it is a *neccessary* staple for every programmer to count binary.  If you are not familiar with it, check the wiki about the subject.  
+A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arthimetically by using a base-2/power of 2/`2^x`.  Regardless of skill level, it is a *neccessary* staple for every programmer to count binary.  If you are not familiar with it, check the [wiki]() about the subject.  
 
 {% highlight lua %}
 example_byte =   0 -- bitflag is 0000 0000
@@ -60,12 +60,9 @@ Note that these variables are all *optional* and you can have multiple ones *wit
 
 {% highlight lua %}
 fancy_car = 0                          -- 0000 (the car is bare bones raw)
-
 fancy_car = fancy_car + has_dashcam    -- 0001 (the car now has a dashcam attachted)
 fancy_car = fancy_car + has_sticker    -- 0011 (and we even threw on a sticker for bling bling!)
-
 -- and if later we wanted to, we could even remove those properties from the variable!
-
 fancy_car = fancy_car - has_sticker    -- 0010 (our fancy_car lost it's luster since we removed the sticker)
 {% endhighlight %}
 
@@ -73,19 +70,19 @@ But what if you added the same property twice?
 
 {% highlight lua %}
 fancy_car = 0                       -- 0000
-
 fancy_car = fancy_car + has_dashcam -- 0001
 fancy_car = fancy_car + has_dashcam -- 0010 (Uh oh, not good)
 {% endhighlight %}
 
-Yikes!  The bitflag has changed so that now our fancy_car has morphed into having a sticker unintentionally.  This is not what we want!  To resolve this you need to use logic switches in your code.  Depending on the language this may be the `&` `|` `~` operations or bit operations `bit.band` `bit.bor` `bit.bnot` in Lua.  The operation to set the bitflags we want needs to be the `or` bit operation for a logic switch.  Let's try this again!
+Yikes!  The bitflag has changed so that now our `fancy_car` has morphed into having a sticker unintentionally.  This is not what we want!  To resolve this you need to use [logic switches]() in your code.  
+
+Depending on the language this may be the `&` `|` `~` operations or bit operations `bit.band` `bit.bor` `bit.bnot` in Lua.  The operation to set the bitflags we want needs to be the `or` bit operation for a logic switch.  Let's try this again!
 
 #### Setting a bitflag
 
 {% highlight lua %}
 local bit = require('bit')
 fancy_car = 0                               -- 0000
-
 fancy_car = bit.bor(fancy_car, has_dashcam) -- 0000 | 0001 = 0001
 fancy_car = bit.bor(fancy_car, has_dashcam) -- 0001 | 0001 = 0001 (presto, it hasn't changed!)
 {% endhighlight %}
@@ -99,7 +96,6 @@ To get a bitflags boolean state you need to check if it is set to `1` or `0`. Th
 {% highlight lua %}
 local bit = require('bit')
 fancy_car = 0                                            -- 0000
-
 fancy_car = bit.bor(fancy_car, has_dashcam, has_sticker) -- 0000 | 0001 | 0010 = 0011
 isolated_bit = bit.band(fancy_car, has_USB_port)         -- 0011 & 0100 = 0000 (isolates the single bit from the rest)
 print(isolated_bit == has_USB_port)                      -- 0000 == 0100 (false, it does not have a USB_port)
@@ -114,9 +110,7 @@ If we use the minus operation on the variable, it will run into the same problem
 {% highlight lua %}
 local bit = require('bit')
 fancy_car = 0                                            -- 0000
-
 fancy_car = bit.bor(fancy_car, has_dashcam, has_sticker) -- 0000 | 0001 | 0010 = 0011
-
 fancy_car = band(fancy_car, bnot(has_dashcam))           -- 0011 & (~0001) = 0010 & 1110 = 0010
 {% endhighlight %}
 
@@ -126,7 +120,10 @@ Our `not` bit operator inverts the bitflag we need to remove and the `and` pairs
 
 ## Why do I Bitmask?
 
-The main uses are simple: speed, compression, and readability.
+The main uses are simple: 
+- *Speed*
+- *Compression*
+- *Readability*
 
 Instead of looping through multiple booleans in a table like so:
 
@@ -141,7 +138,6 @@ for prop, state in pairs(car1_properties) do
 end
 
 -- or something like
-
 car1_property_has_dashcam = true
 car1_property_has_sticker = false
 car1_property_has_USB_port = true
@@ -154,11 +150,11 @@ car2_property_has_sticker = true
 
 Doing code like this is slow and ineffecient!  Not to mention it is very bloated!!!  We want to minimize our code footprint as much as possible and have it run quickly by using a *single* variable to hold all the property states.  
 
-Another very good reason to use bitmasking is when you are sending packets of data over a network.  The data needs to be as compressed as possible otherwise you end up with large packets that take longer to send and receive.  By using bitmasking the data is crammed into the smallest possible form that makes delievery a zinch.
+Another very good reason to use bitmasking is when you are sending packets of data over a network.  The data needs to be as compressed as possible otherwise you end up with large packets that take longer to send and receive.  By using bitmasking the data is crammed into the smallest possible form that makes delievery a blitz.
 
 ## Caveats 
 
-Every language has it's own niche when it comes to the amount of bits stored in a variable.  Make sure you are familiar with the max amount and don't go past it otherwise you might encounter a nasty bug as the bits will overflow.  And if the max limit is bypassed, then the bitflags will need to be broken into smaller groups. 
+Every language has it's own niche when it comes to the amount of bits stored in a variable.  Make sure you are familiar with the max amount and don't go past it.  If the limit is bypassed, then the bitflags will need to be broken into smaller groups otherwise there will be a bug involving bits overflowing. 
 
 Another important thing that I encountered is *number readability*.  This is **especially important** with larger bitflags as the numbers swell up and it's easy to make mistakes.  It looks like this:
 
@@ -216,4 +212,6 @@ The numbers are the same, but they are stored in a neater and compact fashion.
 
 ---
 
-Not every programmer is going to be familiar with bitmasking.  Don't be surprised if you attempt to add it to a project and your fellow developers start scratching their heads in confusion.  If that is the case, just send them to this post and they can observe the benefits associated with the technique.  When using bitmasking for the first few times it may seem tough, but once you become accostumed it becomes a natural programming habit just like any other tool.
+Not every programmer is going to be familiar with bitmasking.  Don't be surprised if you attempt to add it to a project and your fellow developers start scratching their heads in confusion.  If that is the case, just refer them to this post and they can observe the benefits associated with the technique.  
+
+When using bitmasking for the first few times it may seem tough, but once you become accostumed it becomes a natural programming habit just like any other tool.
