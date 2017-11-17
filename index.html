@@ -33,14 +33,7 @@ exclude: true
 				{% endif %}
 
 				<br>
-          <ul>
-            {% for post in site.posts %}
-              <li>
-                <a href="{{ p.url }}">{{ p.title }}</a>
-                {{ p.excerpt }}
-              </li>
-            {% endfor %}
-          </ul>            
+        {{ p.content | strip_html | truncatewords:75 }}           
 				<br>
 				<div class="row">
 					<small>
