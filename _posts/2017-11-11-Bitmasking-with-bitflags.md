@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bitmasking with bitflags
-subtitle: The foribidden art of compressing your code into itty-bitty pieces.  Microscope not included!
+subtitle: The forbidden art of compressing your code into itty-bitty pieces.  Microscope not included!
 category : Advanced
 tags :  
   - optimize
@@ -9,13 +9,13 @@ tags :
   - network
 ---
 
-This subject is more advanced and takes time to learn, but as a programmer the knowledge of *bitmasking* is indispensiable.  It is used commonly in networking and performance critical areas of code.  Another benefit is that it takes up little space.  
+This subject is more advanced and takes time to learn, but as a programmer the knowledge of *bitmasking* is indispensable.  It is used commonly in networking and performance critical areas of code.  Another benefit is that it takes up little space.  
 
 Before we talk about bitmasking, first we must discuss bitflags.
 
 ## What are Bitflags?
 
-A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arthimetically by using a base-2/power of 2/`2^x`.  Regardless of skill level, it is a *neccessary* staple for every programmer to count binary.  If you are not familiar with it, check the [wiki](https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary) about the subject.  
+A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arithmetically by using a base-2/power of 2/`2^x`.  Regardless of skill level, it is a *necessary* staple for every programmer to be able to [count binary](https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary).  
 
 {% highlight lua %}
 example_byte =   0 -- bitflag is 0000 0000
@@ -60,7 +60,7 @@ Note that these variables are all *optional* and you can have multiple ones *wit
 
 {% highlight lua %}
 fancy_car = 0                          -- 0000 (the car is bare bones raw)
-fancy_car = fancy_car + has_dashcam    -- 0001 (the car now has a dashcam attachted)
+fancy_car = fancy_car + has_dashcam    -- 0001 (the car now has a dashcam attached)
 fancy_car = fancy_car + has_sticker    -- 0011 (and we even threw on a sticker for bling bling!)
 -- and if later we wanted to, we could even remove those properties from the variable!
 fancy_car = fancy_car - has_sticker    -- 0010 (our fancy_car lost it's luster since we removed the sticker)
@@ -148,9 +148,9 @@ car2_property_has_sticker = true
 -- etc. etc. etc. you get the idea
 {% endhighlight %}
 
-Doing code like this is slow and ineffecient!  Not to mention it is very bloated!!!  We want to minimize our code footprint as much as possible and have it run quickly by using a *single* variable to hold all the property states.  
+Doing code like this is slow and inefficient!  Not to mention it is very bloated!!!  We want to minimize our code footprint as much as possible and have it run quickly by using a *single* variable to hold all the property states.  
 
-Another very good reason to use bitmasking is when you are sending packets of data over a network.  The data needs to be as compressed as possible otherwise you end up with large packets that take longer to send and receive.  By using bitmasking the data is crammed into the smallest possible form that makes delievery a blitz.
+Another very good reason to use bitmasking is when you are sending packets of data over a network.  The data needs to be as compressed as possible otherwise you end up with large packets that take longer to send and receive.  By using bitmasking the data is crammed into the smallest possible form that makes delivery a blitz.
 
 ## Caveats 
 
@@ -216,4 +216,4 @@ The numbers are the same, but they are stored in a neater and compact fashion.
 
 Not every programmer is going to be familiar with bitmasking.  Don't be surprised if you attempt to add it to a project and your fellow developers start scratching their heads in confusion.  If that is the case, just refer them to this post and they can observe the benefits associated with the technique.  
 
-When using bitmasking for the first few times it may seem tough, but once you become accostumed it becomes a natural programming habit just like any other tool.
+When using bitmasking for the first few times it may seem tough, but once accustomed, it becomes a natural programming habit just like any other tool.

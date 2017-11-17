@@ -9,19 +9,19 @@ tags :
   - design
 ---
 
-When a developer is adding code to their project, a common scenario that will occur is a feature needs to *expand the functionality* of a piece of code beyond the scope of the inital implementation when it was first created. There are two ways to address this.
+When a developer is adding code to their project, a common scenario that will occur is a feature needs to *expand the functionality* of a piece of code beyond the scope of the initial implementation when it was first created. There are two ways to address this.
 
 **Hack or Rewrite?**
 
 ---
 
-Over a few months, I had hacked a bunch of quick-fixes for a module that permated across my entire project.  It ballooned into nasty code that was a nightmare to maintain and add to.  I gritted my teeth, and ultimately decided I needed to perform some open heart code surgery to get to the root of the problem.  Two weeks later and presto, all finished!  After my rewrite was done, I pondered the 'why' of my actions.  What affected my decision to rewrite this code, and what were the tradeoffs?  
+Over a few months, I had hacked a bunch of quick-fixes for a module that permeated across my entire project.  It ballooned into nasty code that was a nightmare to maintain and add to.  I gritted my teeth, and ultimately decided I needed to perform some open heart code surgery to get to the root of the problem.  Two weeks later and presto, all finished!  After my rewrite was done, I pondered the 'why' of my actions.  What affected my decision to rewrite this code, and what were the tradeoffs?  
 
 Thus I have determined an outline relating to the issue.
 
 ## Why does something need to be rewritten?
 
-Perhaps due to bad code design, maybe just to have a cleaner syntax, or even performance issues, but a developer needs to write down all the reasons for doing so and the perceived benefits obtained from the rewrite.  A big factor to consider - rewritting code can be quite time consuming compared to a quick hack which brings me to my next point.
+Perhaps due to bad code design, maybe just to have a cleaner syntax, or even performance issues, but a developer needs to write down all the reasons for doing so and the perceived benefits obtained from the rewrite.  A big factor to consider - rewriting code can be quite time consuming compared to a quick hack which brings me to my next point.
 
 ## What is a hack?  
 
@@ -42,13 +42,13 @@ How much time will this save me in the future?*
 
 If you need to push out a fix for a problem ASAP, a hack will get the job done while time can be spent getting a formal rewrite finished.  Hacks serve as *shortcuts* in contrast to rewrites which are more time consuming.
 
-### Maintence
+### Maintenance
 
-*How negatively or postively will this affect your codebase?*
+*How negatively or positively will this affect your codebase?*
 
-Hacks tend to bloat the code in a nasty way that makes it hard to read and maintain.  In this regard, a developer should seriously aim to *minimize* using hacks in their code base.  Use them sparringly is a good rule of thumb.  
+Hacks tend to bloat the code in a nasty way that makes it hard to read and maintain.  In this regard, a developer should seriously aim to *minimize* using hacks in their code base.  Use them sparingly is a good rule of thumb.  
 
-Rewrites do just the opposite, it leaves your codebase with a pristine shine and the result is generally easier code use and maintence.
+Rewrites do just the opposite, it leaves your codebase with a pristine shine and the result is generally easier code use and maintenance.
 
 ### Scope of the Issue
 
@@ -57,9 +57,9 @@ How much of that module?
 How big of a module is it?  
 If multiple modules are affected, then how many and how deep?*
 
-If the problem is big enough, a rewrite is often neccessary.  But if the issue is limited to a few lines of code in a single module, a hack should suffice.
+If the problem is big enough, a rewrite is often necessary.  But if the issue is limited to a few lines of code in a single module, a hack should suffice.
 
-### Dev Quanitiy  
+### Dev Quantity 
 
 *What is the number of developers working on the project?*
 
@@ -69,7 +69,7 @@ The more developers, the higher magnitude of issues hacks can cause.  If there i
 
 Hacks generally have a reputation for being quick and dirty.  They also *excel* at testing new things before you invest time into a design that may get scrapped.  They are also great for short term fixes, but sacrifice code readability in most cases.  This is further amplified by the number of developers working on the same project.  
 
-Code rewrites are no angels either!  They are time consuming and can cause some serious bugs!  Instead of using the old code as hacks do, you are literally tearing out the old code and rebuilding it, while trying to incorporate more features on top of it.  If not planned properly, this can break a project. Old code that once worked has been altered (usually) that can cause unexpected behaviour if not accounted for.  
+Code rewrites are no angels either!  They are time consuming and can cause some serious bugs!  Instead of using the old code as hacks do, you are literally tearing out the old code and rebuilding it, while trying to incorporate more features on top of it.  If not planned properly, this can break a project. Old code that once worked has been altered (usually) that can cause unexpected behavior if not accounted for.  
 
 ## Conclusion
 
