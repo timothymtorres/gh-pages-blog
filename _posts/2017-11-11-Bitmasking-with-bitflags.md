@@ -15,7 +15,7 @@ Before we talk about bitmasking, first we must discuss bitflags.
 
 ## What are Bitflags?
 
-A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arthimetically by using a base-2/power of 2/`2^x`.  Regardless of skill level, it is a *neccessary* staple for every programmer to count binary.  If you are not familiar with it, check the [wiki]() about the subject.  
+A bitflag is a single bit of code in the smallest possible form a `1` or `0`.  One byte of memory is 8 bits, which means eight `1`'s or `0`'s compressed together.  By counting in binary you can set a bitflag to a on/off state.  This is done arthimetically by using a base-2/power of 2/`2^x`.  Regardless of skill level, it is a *neccessary* staple for every programmer to count binary.  If you are not familiar with it, check the [wiki](https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary) about the subject.  
 
 {% highlight lua %}
 example_byte =   0 -- bitflag is 0000 0000
@@ -74,7 +74,7 @@ fancy_car = fancy_car + has_dashcam -- 0001
 fancy_car = fancy_car + has_dashcam -- 0010 (Uh oh, not good)
 {% endhighlight %}
 
-Yikes!  The bitflag has changed so that now our `fancy_car` has morphed into having a sticker unintentionally.  This is not what we want!  To resolve this you need to use [logic switches]() in your code.  
+Yikes!  The bitflag has changed so that now our `fancy_car` has morphed into having a sticker unintentionally.  This is not what we want!  To resolve this you need to use logic switches in your code.  
 
 Depending on the language this may be the `&` `|` `~` operations or bit operations `bit.band` `bit.bor` `bit.bnot` in Lua.  The operation to set the bitflags we want needs to be the `or` bit operation for a logic switch.  Let's try this again!
 
@@ -211,6 +211,8 @@ has_turkey =       2^17
 The numbers are the same, but they are stored in a neater and compact fashion.
 
 ---
+
+## Disclaimer
 
 Not every programmer is going to be familiar with bitmasking.  Don't be surprised if you attempt to add it to a project and your fellow developers start scratching their heads in confusion.  If that is the case, just refer them to this post and they can observe the benefits associated with the technique.  
 
