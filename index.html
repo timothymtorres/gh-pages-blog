@@ -33,8 +33,14 @@ exclude: true
 				{% endif %}
 
 				<br>
-				{{ p.content }}
-
+          <ul>
+            {% for post in site.posts %}
+              <li>
+                <a href="{{ p.url }}">{{ p.title }}</a>
+                {{ p.excerpt }}
+              </li>
+            {% endfor %}
+          </ul>            
 				<br>
 				<div class="row">
 					<small>
